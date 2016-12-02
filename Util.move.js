@@ -5,6 +5,7 @@
  * @example Util.move({ 'el' : doc.getElementById( 'one' ), 'appendTo' : doc.getElementById( 'wrap' ), 'minWidth' : 800 });
  * @todo Add `height` option
  * @todo Add a `callback` function option
+ * @todo Run a check for aria-describedby before creating it
  */
 
 ( function ( w, doc ) {
