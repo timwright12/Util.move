@@ -3,7 +3,6 @@
  * @author Tim Wright
  * @license MIT
  * @example Util.move({ 'el' : doc.getElementById( 'one' ), 'appendTo' : doc.getElementById( 'wrap' ), 'minWidth' : 800 });
- * @todo Reset element on resize
  * @todo Add `height` option
  */
 
