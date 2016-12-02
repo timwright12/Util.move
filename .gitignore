@@ -1,18 +1,9 @@
-# Project Files
-assets/css/app.css
-assets/css/app.min.css
-assets/css/fonts.min.css
-assets/js/app.min.js
-
 # Sass
 .sass-cache
 *.map
 
 # NPM
 node_modules/
-
-# Jekyll
-_site/
 
 # Editors
 *.esproj
@@ -33,25 +24,3 @@ Session.vim
 # Windows
 Thumbs.db
 Desktop.ini
-
-# SVN
-.svn/
-
-# Wordpress
-.htaccess
-wp-*.php
-xmlrpc.php
-wp-admin/
-wp-includes/
-wp-content/uploads/
-wp-content/blogs.dir/
-wp-content/upgrade/*
-wp-content/backup-db/*
-wp-content/advanced-cache.php
-wp-content/wp-cache-config.php
-wp-content/cache/*
-wp-content/cache/supercache/*
-sitemap.xml
-sitemap.xml.gz
-readme.html
-license.txt
