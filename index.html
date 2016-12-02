@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+  <title>Util.move</title>
+  <meta charset="utf-8">
+
+  <style>
+    #wrap { border: 10px solid red }
+    #one { background: #333;color:#fff; }
+  </style>
+
+</head>
+<body>
+
+  <div id="wrap">
+    <div id="one">one</div>
+    <div id="two">two</div>
+    <div id="three">three</div>
+    <div id="four">four</div>
+    <div id="five">five</div>
+  </div>
+
+  <div id="dd">DD</div>
+
+  <script src="Util.move.js"></script>
+  <script>
+    ( function ( w, doc ) {
+
+      Util.move( {
+        'el'       : doc.getElementById( 'one' ),
+        'appendTo' : doc.getElementById( 'wrap' ),
+        'minWidth' : 800
+      } );
+
+    } )( this, this.document );
+  </script>
+
+</body>
+</html>
