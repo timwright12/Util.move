@@ -5,8 +5,8 @@ A plugin to help elements around the DOM
   import UtilityMove from '/path/to/UtilityMove.js';
 
   UtilityMove( {
-    'el'       : doc.getElementById( 'one' ),
-    'appendTo' : doc.getElementById( 'wrap' ),
+    'el'       : document.getElementById( 'one' ),
+    'appendTo' : document.getElementById( 'wrap' ),
     // 'before'      : null,
     // 'after'       : null,
     // 'prependTo'   : null,
