@@ -8,7 +8,7 @@
  * @todo Run a check for aria-describedby before creating it
  */
 
-( function ( w, doc ) {
+( function ( global ) {
 
   'use strict';
 
@@ -16,8 +16,8 @@
    * Setting the global namespace of Util if it's not set already
    * @namespace Util
    */
-  if ( 'object' !== typeof window.Util ) {
-    window.Util = {};
+  if ( 'object' !== typeof window.UtilityMove ) {
+    window.UtilityMove = {};
   }
 
   /** @function
@@ -30,7 +30,7 @@
    * @example var myEfficientFn = debounce(function() { things to do }, 250);
    * @example  window.addEventListener( 'resize', myEfficientFn );
    */
-  Util.debounce = function ( func, wait, immediate ) {
+  var UtilityDebouce = function ( func, wait, immediate ) {
 
     var timeout;
     return function() {
@@ -63,10 +63,10 @@
    * @param {number} options.minWidth
    * @param {number} options.refreshRate
    */
-  Util.move = function ( options ) {
+  var UtilityMove = function ( options ) {
 
     // Add an accessibility message to the body to let screen reader users know that the HTMl may shift
-    var a11yEl = doc.createElement( 'div' );
+    var a11yEl = document.createElement( 'div' );
 
     // Fill out the element
     a11yEl.setAttribute( 'id', 'move-helper-text' );
@@ -76,10 +76,10 @@
     a11yEl.style.left = '-999em';
 
     // Insert this element into the DOM
-    doc.body.appendChild( a11yEl );
+    document.body.appendChild( a11yEl );
 
     // Point to the message
-    doc.body.setAttribute( 'aria-describedby', 'move-helper-text' );
+    document.body.setAttribute( 'aria-describedby', 'move-helper-text' );
 
     // Setting default options
     var defaults = {
@@ -95,7 +95,7 @@
     // Setting and caching some variables
     var i;
     var stop = false;
-    var viewport = doc.documentElement.clientWidth;
+    var viewport = document.documentElement.clientWidth;
     var storeOriginalParent = options.el.parentNode;
     var storeOriginalSibling = options.el.nextSibling;
 
@@ -167,24 +167,24 @@
     if ( options.minWidth ) {
 
       // Move the element if the screen is larger than the px value
-	    if ( doc.documentElement.clientWidth > options.minWidth && stop === false ) { // large screen
+	    if ( document.documentElement.clientWidth > options.minWidth && stop === false ) { // large screen
 
         elMove();
 
-	    } else if ( doc.documentElement.clientWidth <= options.minWidth) { // small screen
+	    } else if ( document.documentElement.clientWidth <= options.minWidth) { // small screen
 
         elReset();
 
 	    }
 
       // Add a listener to move the element when the screensize is larger than the px value, debouce it so it doesn't clog up the main thread
-	    w.addEventListener( 'resize', this.debounce( function() {
+	    window.addEventListener( 'resize', UtilityDebouce( function() {
 
-        if ( doc.documentElement.clientWidth > options.minWidth && stop === false ) { // large screen
+        if ( document.documentElement.clientWidth > options.minWidth && stop === false ) { // large screen
 
           elMove();
 
-        } else if ( doc.documentElement.clientWidth <= options.minWidth && stop === true ) { // small screen
+        } else if ( document.documentElement.clientWidth <= options.minWidth && stop === true ) { // small screen
 
           elReset();
 
@@ -200,5 +200,15 @@
     } // if / else
 
   }; // Util.move()
+  
+  if ( typeof module !== 'undefined' && typeof module.exports !== 'undefined' ) {
+    module.exports = UtilityMove;
+  } else if ( typeof define === 'function' && define.amd ) {
+    define('UtilityMove', [], function () {
+      return UtilityMove;
+    } );
+  } else if ( typeof global === 'object' ) {
+    global.UtilityMove = UtilityMove;
+  }
 
-} )( this, this.document );
+} )( typeof global !== 'undefined' ? global : window );

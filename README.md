@@ -1,10 +1,10 @@
 # Util.move
 A plugin to help elements around the DOM
 
-Pen: http://codepen.io/timwright12/pen/Obzgaw?editors=1010
-
 ```
-  Util.move( {
+  import UtilityMove from '/path/to/UtilityMove.js';
+
+  UtilityMove( {
     'el'       : doc.getElementById( 'one' ),
     'appendTo' : doc.getElementById( 'wrap' ),
     // 'before'      : null,
@@ -14,3 +14,5 @@ Pen: http://codepen.io/timwright12/pen/Obzgaw?editors=1010
     'refreshRate' : 100
   } );
 ```
+
+If you're not using ES6, you don't need the `import`, just include the script
