@@ -2,6 +2,11 @@
 A plugin to help elements around the DOM
 
 ```
+npm install utilitymove --save
+```
+
+
+```
   import UtilityMove from '/path/to/UtilityMove.js';
 
   UtilityMove( {
