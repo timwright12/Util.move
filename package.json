@@ -1,0 +1,12 @@
+{
+  "name": "UtilityMove",
+  "version": "1.0.0",
+  "description": "A plugin to help elements around the DOM",
+  "author": {
+    "name": "Tim Wright",
+    "email": "tim@csskarma.com",
+    "url": "https://csskarma.com",
+    "role": "developer"
+  },
+  "license": "MIT"
+}
