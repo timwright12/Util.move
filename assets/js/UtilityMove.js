@@ -184,7 +184,10 @@
 
     // Check if using match media, if a query has been set, and if it is a valid query.
     if ( options.useMatchMedia && !!options.mediaQuery && mediaQuery.media !== 'not all' ) {
-
+      // Move immediately if it matches.
+      if ( mediaQuery.matches ) {
+        elMove();
+      }
       // Add a listener.
       // No need to debounce. This only happens when the media query changes from true to false.
       mediaQuery.addListener( matchMediaListener );
