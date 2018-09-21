@@ -16,7 +16,9 @@ npm install utilitymove --save
     // 'after'       : null,
     // 'prependTo'   : null,
     'minWidth' : 800,
-    'refreshRate' : 100
+    'refreshRate' : 100,
+    // useMatchMedia: true,
+    // mediaQuery: '(min-width: 800px)',
   } );
 ```
 
