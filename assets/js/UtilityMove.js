@@ -83,21 +83,23 @@
 
     // Setting default options
     var defaults = {
-      'el'          : null,
-      'before'      : null,
-      'after'       : null,
-      'appendTo'    : null,
-      'prependTo'   : null,
-      'minWidth'    : null,
-      'refreshRate' : 200
+      'el'            : null,
+      'before'        : null,
+      'after'         : null,
+      'appendTo'      : null,
+      'prependTo'     : null,
+      'minWidth'      : null,
+      'refreshRate'   : 200,
+      'useMatchMedia' : false,
+      'mediaQuery'    : '',
     };
 
     // Setting and caching some variables
     var i;
     var stop = false;
-    var viewport = document.documentElement.clientWidth;
     var storeOriginalParent = options.el.parentNode;
     var storeOriginalSibling = options.el.nextSibling;
+    var mediaQuery = window.matchMedia( options.mediaQuery );
 
     // Map all default settings to user defined options
     for ( i = 0; i < defaults.length; i = i + 1 ) {
@@ -164,7 +166,32 @@
 
     } // elReset();
 
-    if ( options.minWidth ) {
+    /** @function
+     * @name matchMediaListener
+     * @description Listener for the window.matchMedia query, if used.
+     * @param {Event} event The media event object.
+     */
+    var matchMediaListener = function( event ) {
+      // Move the element if the media query matches
+      if ( event.matches ) {
+
+        elMove();
+      } else {
+
+        elReset();
+      }
+    };
+
+    // Check if using match media, if a query has been set, and if it is a valid query.
+    if ( options.useMatchMedia && !!options.mediaQuery && mediaQuery.media !== 'not all' ) {
+      // Move immediately if it matches.
+      if ( mediaQuery.matches ) {
+        elMove();
+      }
+      // Add a listener.
+      // No need to debounce. This only happens when the media query changes from true to false.
+      mediaQuery.addListener( matchMediaListener );
+    } else if ( options.minWidth && ! options.useMatchMedia ) {
 
       // Move the element if the screen is larger than the px value
 	    if ( document.documentElement.clientWidth > options.minWidth && stop === false ) { // large screen
@@ -200,7 +227,7 @@
     } // if / else
 
   }; // Util.move()
-  
+
   if ( typeof module !== 'undefined' && typeof module.exports !== 'undefined' ) {
     module.exports = UtilityMove;
   } else if ( typeof define === 'function' && define.amd ) {
