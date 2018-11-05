@@ -1,3 +1,4 @@
+/* global module, define, global */
 /**
  * @file A plugin to help elements around the DOM
  * @author Tim Wright
@@ -33,8 +34,16 @@
   var UtilityDebouce = function ( func, wait, immediate ) {
 
     var timeout;
+    
+   /** @function
+    * @description Anon function
+    */
     return function() {
       var context = this, args = arguments;
+      
+      /** @function
+       * @description wait function
+       */
       var later = function() {
         timeout = null;
         if ( !immediate ) {
@@ -118,27 +127,27 @@
      */
     var elMove = function() {
 
-	    if ( options.el ) {
+        if ( options.el ) {
 
-	      if ( options.before ) {
+          if ( options.before ) {
 
-	        options.before.parentNode.insertBefore( options.el, options.before );
+            options.before.parentNode.insertBefore( options.el, options.before );
 
-	      } else if ( options.after ) {
+          } else if ( options.after ) {
 
-	        options.after.parentNode.insertBefore( options.el, options.after.nextSibling );
+            options.after.parentNode.insertBefore( options.el, options.after.nextSibling );
 
-	      } else if ( options.prependTo ) {
+          } else if ( options.prependTo ) {
 
-	        options.prependTo.insertBefore( options.el, options.prependTo.firstChild );
+            options.prependTo.insertBefore( options.el, options.prependTo.firstChild );
 
-	      } else if ( options.appendTo ) {
+          } else if ( options.appendTo ) {
 
-	         options.appendTo.appendChild( options.el );
+             options.appendTo.appendChild( options.el );
 
-	      }
+          }
 
-	    } // if options.*
+        } // if options.*
 
       stop = true;
 
@@ -194,18 +203,18 @@
     } else if ( options.minWidth && ! options.useMatchMedia ) {
 
       // Move the element if the screen is larger than the px value
-	    if ( document.documentElement.clientWidth > options.minWidth && stop === false ) { // large screen
+        if ( document.documentElement.clientWidth > options.minWidth && stop === false ) { // large screen
 
         elMove();
 
-	    } else if ( document.documentElement.clientWidth <= options.minWidth) { // small screen
+        } else if ( document.documentElement.clientWidth <= options.minWidth) { // small screen
 
         elReset();
 
-	    }
+        }
 
       // Add a listener to move the element when the screensize is larger than the px value, debouce it so it doesn't clog up the main thread
-	    window.addEventListener( 'resize', UtilityDebouce( function() {
+        window.addEventListener( 'resize', UtilityDebouce( function() {
 
         if ( document.documentElement.clientWidth > options.minWidth && stop === false ) { // large screen
 
@@ -222,7 +231,7 @@
     } else {
 
       // Move the element independently of the screen size
-	    elMove();
+        elMove();
 
     } // if / else
 

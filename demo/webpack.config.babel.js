@@ -21,6 +21,13 @@ const config = {
 		rules: [
 			{
 				test: /\.js$/,
+				enforce: 'pre',
+				loader: 'eslint-loader',
+				options: {
+					fix: true
+				}
+			},{
+				test: /\.js$/,
 				use: [{
 					loader: 'babel-loader',
 					options: {

@@ -1,12 +1,13 @@
 {
   "name": "utilitymove",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A plugin to help elements around the DOM",
   "author": {
     "name": "Tim Wright",
-    "email": "tim@csskarma.com",
-    "url": "https://csskarma.com",
+    "email": "hello@timwright.org",
+    "url": "https://timwright.org",
     "role": "developer"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "main": "./assets/js/UtilityMove.js"
 }
