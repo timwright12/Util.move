@@ -1,6 +1,6 @@
 {
   "name": "utilitymove",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A plugin to help elements around the DOM",
   "author": {
     "name": "Tim Wright",
@@ -8,6 +8,14 @@
     "url": "https://timwright.org",
     "role": "developer"
   },
+  "repository": {
+  "type": "git",
+  "url": "git+https://github.com/timwright12/Util.move.git"
+  },
   "license": "MIT",
-  "main": "./assets/js/UtilityMove.js"
+  "bugs": {
+    "url": "https://github.com/timwright12/util.move/issues"
+  },
+  "main": "./assets/js/UtilityMove.js",
+  "homepage": "https://github.com/timwright12/Util.move/blob/master/README.md"
 }

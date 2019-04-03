@@ -34,13 +34,13 @@
   var UtilityDebouce = function ( func, wait, immediate ) {
 
     var timeout;
-    
+
    /** @function
     * @description Anon function
     */
     return function() {
       var context = this, args = arguments;
-      
+
       /** @function
        * @description wait function
        */
@@ -85,7 +85,9 @@
     a11yEl.style.left = '-999em';
 
     // Insert this element into the DOM
-    document.body.appendChild( a11yEl );
+		if(!document.getElementById('move-helper-text')) {
+			document.body.appendChild( a11yEl );
+		}
 
     // Point to the message
     document.body.setAttribute( 'aria-describedby', 'move-helper-text' );
