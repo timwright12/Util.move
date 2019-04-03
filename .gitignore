@@ -1,9 +1,8 @@
-# Sass
-.sass-cache
-*.map
-
-# NPM
-node_modules/
+node_modules
+release
+vendor
+phpunit.xml
+.idea
 
 # Editors
 *.esproj
