@@ -7,7 +7,7 @@ npm install utilitymove --save
 
 
 ```
-  import UtilityMove from '/path/to/UtilityMove.js';
+  import UtilityMove from 'UtilityMove';
 
   UtilityMove( {
     'el'       : document.getElementById( 'one' ),

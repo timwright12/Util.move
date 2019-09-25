@@ -1,7 +1,8 @@
 {
   "name": "utilitymove",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A plugin to help elements around the DOM",
+  "main": "./assets/js/UtilityMove.js",
   "author": {
     "name": "Tim Wright",
     "email": "hello@timwright.org",
